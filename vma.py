@@ -16,13 +16,15 @@ import time
 #
 sens=">"
 cpt = 0
+vma= "0"
 
 #
 #   Lecture ficher vma.txt
 #
-fichier = open("vma.txt","r")
-vma = fichier.read()
-fichier.close()
+if os.path.exists("vma.txt"):
+    fichier = open("vma.txt","r")
+    vma = fichier.read()
+    fichier.close()
 
 if int(vma) > 0:
     cpt=int(vma)
