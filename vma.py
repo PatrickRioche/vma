@@ -17,6 +17,18 @@ import time
 sens=">"
 cpt = 0
 
+#
+#   Lecture ficher vma.txt
+#
+fichier = open("vma.txt","r")
+vma = fichier.read()
+fichier.close()
+
+if int(vma) > 0:
+    cpt=int(vma)
+else:
+    cpt=0
+
 motorpin1 = 24	# GPIOO8
 motorpin2 = 21	# GPIOO9
 motorpin3 = 19	# GPIO10
@@ -91,6 +103,9 @@ while True:
             anticlock()
         else:
             cpt = 0
+    fichier = open("vma.txt","w")
+    fichier.write(str(cpt))
+    fichier.close()
 
 GPIO.cleanup()
 print("Fin de programme VMA: " + __version__ )
